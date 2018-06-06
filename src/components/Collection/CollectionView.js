@@ -4,17 +4,7 @@ import { withStyles } from 'material-ui/styles';
 import DocumentView from './DocumentExpansionPanelView';
 import styles from './ViewStyles';
 
-
-class CollectionView extends React.Component{
-    constructor(props, service){
-        super(props);
-        this.service = service;
-        this.state = {
-            collection : []
-        }
-    }
-    render() {
-        const { classes, collection, collectionConfig, viewConfig } = this.props;
+const CollectionView = ({ classes, collection, collectionConfig, viewConfig } ) => {
         return (<div>
                     {collection.map((document, idx)=>{
                         return (
@@ -28,8 +18,7 @@ class CollectionView extends React.Component{
                     })}
                 </div>
         );
-    }
-}
+};
 
 CollectionView.propTypes = {
     classes: PropTypes.object.isRequired,

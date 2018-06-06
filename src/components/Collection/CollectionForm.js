@@ -1,6 +1,5 @@
 import React from 'react';
 import Form from './Form';
-import CollectionService from './CollectionService';
 
 export default class CollectionForm extends React.Component{
     constructor(props){
@@ -13,13 +12,18 @@ export default class CollectionForm extends React.Component{
 
     onSubmit(formData){
         let actionType = 'ADD';
+
         if(this.state.refId) actionType = 'UPDATE';
-        return this.service.saveDoc(formData, this.state.refId).then(()=>this.props.successAction(actionType)).catch(this.props.failureAction);
+
+        return this.service.saveDoc(formData, this.state.refId)
+            .then(()=>
+                this.props.successAction(actionType)
+            ).catch(this.props.failureAction);
     }
 
     deleteData(refId){
         if(window.confirm('Are you sure?') == true){
-            this.service.deleteDoc(refId).then(()=>{
+            return this.service.deleteDoc(refId).then(()=>{
                 this.props.successAction('DELETE');
             }).catch(this.props.failureAction)
         }

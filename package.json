@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "firebase": "^4.12.1",
     "firebase-admin": "^5.12.0",
     "firebase-tools": "^3.18.4",
@@ -13,13 +15,14 @@
     "react-router-dom": "^4.2.2",
     "react-router-hooks": "^1.0.1",
     "react-scripts": "1.1.4",
+    "react-test-renderer": "^16.4.0",
     "redux": "^4.0.0",
     "redux-thunk": "^2.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "react-scripts test --env=jsdom -u",
     "eject": "react-scripts eject",
     "deploy": "npm run build & firebase deploy --only hosting"
   }
